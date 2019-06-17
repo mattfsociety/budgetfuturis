@@ -7,12 +7,16 @@ var budgetController = (function(){
 		this.id = id;
 		this.description = description;
 		this.value = value;
+		this.month = month;
+		this.what = "Uitgaven";
 	};
 
 	var Income = function(id, description, value){
 		this.id = id;
 		this.description = description;
 		this.value = value;
+		this.month = month;
+		this.what = "Inkomen";
 	};
 
 	//het berekenen van het bedrag(type: inkomen of uitgaven)
@@ -29,7 +33,7 @@ var budgetController = (function(){
 		data.totals[type] = sum;
 	}
 
-	//var data stored alleItems(exp of inc) Deze zullen worden gevuld met 
+	//var data stored alleItems(exp of inc) Deze zullen worden gevuld met
 	//de addItem function. hierin wordt gekeken of het type exp of inc is
 	//waarna alleItems wordt gepusht met alle benodigde data.
 	var data = {

@@ -204,12 +204,12 @@ h2 {
 
 
 
-.income .item__value,
+.income .item__value
 {
     color: #28B9B5;
 }
 
-.expenses .item__value,
+.expenses .item__value
  {
     color: #FF5049;
 }
