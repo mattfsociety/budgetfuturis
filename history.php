@@ -23,28 +23,35 @@
         
         <div class="bottom">
 
-            <select class="add__type">
-<?php
-                $query = "SELECT * FROM budget GROUP BY budget_month";
-                $select_month = mysqli_query($connection, $query);
 
-                while($row = mysqli_fetch_assoc($select_month)) {
-                $month = $row['budget_month'];
+            <form action="#" method="post" enctype="multipart/form-data" class="middle">
+                <select class="add__type" name="select_month">
+                    <?php
+                        $query = "SELECT DISTINCT budget_month FROM budget";
+                        $select_month = mysqli_query($connection, $query);
 
-                echo "<option value='month'>$month</option>";
+                        while($row = mysqli_fetch_assoc($select_month)) {
+                        $month = $row['budget_month'];
 
-                }
-?>
-            </select>
+                        echo "<option value='$month'>$month</option>";
+
+                        }
+                    ?>
+                </select><br><br>
 
 
+                <div class="form-group">
+                    <input class="btn" type="submit" name="bekijk_maand" value="Bekijk deze maand">
+                </div><br><br>
+            </form>
 
-            <table class="table table-bordered table-hover">
+
+            <table>
                 <thead>
                     <tr>
                         <th>Maand</th>
                         <th>Wat?</th>
-                        <th>Beschrijvingf</th>
+                        <th>Beschrijving</th>
                         <th>Bedrag</th>
                     </tr>
                 </thead>
@@ -53,31 +60,44 @@
 
                 <?php
 
-                $query = "SELECT * FROM budget";
-                $select_posts = mysqli_query($connection,$query);
 
-                while($row = mysqli_fetch_assoc($select_posts)) {
-                    $budget_id = $row['budget_id'];
-                    $budget_month = $row['budget_month'];
-                    $budget_beschrijving = $row['budget_beschrijving'];
-                    $budget_bedrag = $row['budget_bedrag'];
-                    $budget_wat = $row['budget_wat'];
 
-                    echo "<tr>";
-                    echo "<td>$budget_month</td>";
-                    echo "<td>$budget_wat</td>";
-                    echo "<td>$budget_beschrijving</td>";
-                    echo "<td>$budget_bedrag</td>";
-                    echo "</tr>";
+                if(isset($_POST['bekijk_maand'])) {
+
+                    $month = $_POST['select_month'];
+
+
+                    $query = "SELECT * FROM budget WHERE budget_month = '$month'";
+                    $select_posts = mysqli_query($connection,$query);
+
+                    while($row = mysqli_fetch_assoc($select_posts)) {
+                        $budget_id = $row['budget_id'];
+                        $budget_month = $row['budget_month'];
+                        $budget_beschrijving = $row['budget_beschrijving'];
+                        $budget_bedrag = $row['budget_bedrag'];
+                        $budget_wat = $row['budget_wat'];
+
+                        echo "<tr>";
+                        echo "<td>$budget_month</td>";
+                        echo "<td>$budget_wat</td>";
+                        echo "<td>$budget_beschrijving</td>";
+                        echo "<td>$budget_bedrag</td>";
+                        echo "</tr>";
+                    }
+
                 }
+
 
                 ?>
 
 
                 </tbody>
-            </table>
-            
-            <a href="./index.html"><button>Ga terug</button></a>
+            </table><br><br>
+
+            <div class="middle">
+                <a href="./index.html"><button>Ga terug</button></a>
+            </div>
+
 
         </div>
         
