@@ -103,7 +103,7 @@ body {
 .add {
     padding: 14px;
     border-bottom: 1px solid #000000;
-    background-color: #f7f7f7;
+    background-color: #555;
 }
 
 .add__container {
@@ -183,37 +183,6 @@ h2 {
     margin-bottom: 15px;
 }
 
-.icome__title { color: #000000; }
-.expenses__title { color: #000000; }
-
-.item {
-    padding: 13px;
-    border-bottom: 1px solid #e7e7e7;
-}
-
-
-
-.item__description {
-    float: left;
-}
-
-.item__value {
-    float: left;
-    transition: transform 0.3s;
-}
-
-
-
-.income .item__value
-{
-    color: #28B9B5;
-}
-
-.expenses .item__value
- {
-    color: #FF5049;
-}
-
 
 button {
     background-color: #555;
@@ -263,4 +232,12 @@ table th {
     text-align: left;
     background-color: #555;
     color: white;
+}
+
+.double{
+    width: 30%;
+    float: left;
+    margin-left: 13.5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

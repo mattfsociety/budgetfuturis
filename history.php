@@ -27,12 +27,15 @@
             <form action="#" method="post" enctype="multipart/form-data" class="middle">
                 <select class="add__type" name="select_month">
                     <?php
+
+                        // Uit de database worden de beschikbare maanden gehaald
                         $query = "SELECT DISTINCT budget_month FROM budget";
                         $select_month = mysqli_query($connection, $query);
 
                         while($row = mysqli_fetch_assoc($select_month)) {
                         $month = $row['budget_month'];
 
+                        // Waardes in box zetten
                         echo "<option value='$month'>$month</option>";
 
                         }
@@ -64,12 +67,15 @@
 
                 if(isset($_POST['bekijk_maand'])) {
 
+                    // Bekijk de geselecteerde maand
                     $month = $_POST['select_month'];
 
-
+                    // Query
                     $query = "SELECT * FROM budget WHERE budget_month = '$month'";
                     $select_posts = mysqli_query($connection,$query);
 
+
+                    // Tabel vullen met data
                     while($row = mysqli_fetch_assoc($select_posts)) {
                         $budget_id = $row['budget_id'];
                         $budget_month = $row['budget_month'];
@@ -95,7 +101,7 @@
             </table><br><br>
 
             <div class="middle">
-                <a href="./index.html"><button>Ga terug</button></a>
+                <a href="index.php"><button>Ga terug</button></a>
             </div>
 
 
