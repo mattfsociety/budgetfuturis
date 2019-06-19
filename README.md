@@ -8,7 +8,7 @@ een bedrag in te voeren wordt er een berekening gemaakt over het beschikbare
 budget. De applicatie slaat de gegevens vervolgens op in een MySQL-database.
 
 
-In het bestand Index.HTML is de HTML code van de webapplicatie in combinatie
+In het bestand Index.php is de HTML code van de webapplicatie in combinatie
  met de PhP die de berekening mogelijk maakt te vinden 
 met de stijling in Style.CSS
 

@@ -241,3 +241,11 @@ table th {
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+.td-red{
+    color: red;
+}
+
+.td-green{
+    color: green;
+}
